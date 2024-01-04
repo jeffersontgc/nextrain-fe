@@ -4,7 +4,7 @@ import { NextPage } from "next";
 const App: NextPage = () => {
   return (
     <div>
-      <h1>hola mundo</h1>
+      <h1>hola jefferson</h1>
     </div>
   );
 };
