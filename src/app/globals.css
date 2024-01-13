@@ -1,3 +1,100 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+#header {
+  background-color: #f75e25;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.6);
+}
+
+#contain-logo h2 {
+  color: #fff;
+  font-size: 24px;
+  margin: 0;
+  margin-right: 20px;
+  font-weight: 600;
+}
+
+#contains-browser-links ul {
+  list-style: none;
+  display: flex;
+}
+
+#contains-browser-links li {
+  margin-right: 20px;
+}
+
+#contains-browser-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+#contains-browser-links a:hover {
+  color: #ffa500;
+}
+
+#contains-hader-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+#contain-header-button {
+  background-color: #fff;
+  color: #f75e25;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+#contain-header-button-2 {
+  background-color: transparent;
+  color: #fff;
+  padding: 10px 15px;
+  border: #fff solid 2px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 842px) {
+  #contains-browser-links {
+    display: none;
+  }
+
+  #contain-logo {
+    text-align: center;
+  }
+
+  #contain-logo h2 {
+    font-size: 25px;
+  }
+
+  #contains-hader-buttons {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #contain-header-button,
+  #contain-header-button-2 {
+    font-size: 13px;
+    margin: 5px;
+  }
+}
