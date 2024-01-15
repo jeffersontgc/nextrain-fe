@@ -1,4 +1,5 @@
 import React from "react";
+import { useRouter } from "next/navigation";
 import { headerMenuItems } from "@/utils/data";
 
 const Header = () => {
@@ -18,10 +19,10 @@ const Header = () => {
       </div>
       <div className="contains-hader-buttons">
         <div className="contain-header-button">
-          <button className="button-primary">Sign Me Up</button>
+          <button>Sign Me Up</button>
         </div>
         <div className="contain-header-button-2">
-          <button className="button-primary">Log Me In</button>
+          <button>Log Me In</button>
         </div>
       </div>
     </div>
