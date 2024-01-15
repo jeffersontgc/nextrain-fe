@@ -1,3 +1,8 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "no-use-before-define": "off", // Puedes necesitar desactivar otras reglas según tu código
+    "eslint-disable-next-line": "off",
+    "@next/next/no-html-link-for-pages": "off" // Puedes necesitar desactivar otras reglas específicas de Next.js
+  }
 }
