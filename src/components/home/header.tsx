@@ -23,12 +23,6 @@ const Header = () => {
       </div>
       <div className="contains-hader-buttons">
         <div className="contain-header-button">
-<<<<<<< HEAD
-          <button>Sign Me Up</button>
-        </div>
-        <div className="contain-header-button-2">
-          <button>Log Me In</button>
-=======
           <button
             onClick={() => push("/auth/register")}
             className="button-primary"
@@ -43,7 +37,6 @@ const Header = () => {
           >
             Log Me In
           </button>
->>>>>>> 856125027be08943292be4733476b48daf3f0cc6
         </div>
       </div>
     </div>

@@ -96,4 +96,19 @@
     font-size: 13px;
     margin: 5px;
   }
+
+  @media screen and (max-width: 430px) {
+    #contains-hader-buttons {
+      display: none;
+    }
+
+    #contain-logo {
+      height: auto;
+      align-content: center;
+    }
+
+    #contain-logo h2 {
+      font-size: 30px;
+    }
+  }
 }
