@@ -1,6 +1,37 @@
 import React from "react";
 
 const LoginForm = () => {
+  const [formData, setFormData] = React.useState({
+    email: "",
+    password: "",
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const validateEmail = users.find((user) => user?.email === formData.email);
+    if (validateEmail) {
+      alert("El usuario no existe");
+    }
+
+    const IsValidUser = users?.find(
+      (lock) =>
+        lock?.email === formData.email && lock?.password === formData?.password,
+    );
+
+    if (IsValidUser) {
+      alert("Se han logueado correctamente");
+    }
+  };
+
+  console.log("formData", formData);
+
   return (
     <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
       <form className="space-y-6" action="#" method="POST">
@@ -16,6 +47,7 @@ const LoginForm = () => {
               id="email"
               name="email"
               type="email"
+              onChange={(e) => setEmail(e.target.value)}
               autoComplete="email"
               required
               className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
@@ -44,6 +76,7 @@ const LoginForm = () => {
               id="password"
               name="password"
               type="password"
+              onChange={(e) => setPassword(e.target.value)}
               autoComplete="current-password"
               required
               className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"

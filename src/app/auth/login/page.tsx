@@ -3,6 +3,9 @@ import Image from "next/image";
 import LoginForm from "@/components/auth/forms/login";
 
 const LoginPage = () => {
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+
   return (
     <div className="flex h-[100vh] flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -19,7 +22,7 @@ const LoginPage = () => {
           Iniciar Sesión
         </h2>
       </div>
-      <LoginForm />
+      <LoginForm setEmail={setEmail} setPassword={setPassword} />
     </div>
   );
 };
