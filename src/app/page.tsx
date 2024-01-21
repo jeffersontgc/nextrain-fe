@@ -1,15 +1,12 @@
 import React from "react";
-import { NextPage } from "next";
-import Header from "@/components/home/header";
-import Slide from "@/components/home/slide";
+import HeaderHome from "@/components/header";
 
-const App: NextPage = () => {
+const HomePage = () => {
   return (
     <div>
-      <Header />
-      <Slide />
+      <HeaderHome />
     </div>
   );
 };
 
-export default App;
+export default HomePage;
