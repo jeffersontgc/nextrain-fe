@@ -65,8 +65,8 @@ const ModalForm: React.FC<Props> = (props) => {
                   <>
                     <div
                       className={classNames(
-                        props.whiteBgHead ? "bg-white" : "bg-primary",
-                        " py-4 px-6 flex justify-between items-center",
+                        props.whiteBgHead ? "bg-white" : "bg-green-400",
+                        " py-4 px-5 flex justify-between items-center",
                       )}
                     >
                       <span
