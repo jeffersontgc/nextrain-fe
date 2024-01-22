@@ -5,12 +5,15 @@ import ModalForm from "@/components/utils/modal";
 import ProductCreateForm from "@/components/products/forms/create";
 
 const HomePage = () => {
-  const [openModal, setOpenModal] = React.useState<boolean>(true);
+  const [openModal, setOpenModal] = React.useState<boolean>(false);
   const [formData, setFormData] = React.useState<any>({
     name: "",
-    description: "",
-    price: "",
+    url: "",
+    precio: "",
+    descripcion: "",
   });
+
+  console.log(formData);
 
   const handleSubmit = async () => {};
 
@@ -19,7 +22,7 @@ const HomePage = () => {
       <HeaderHome />
       <ModalForm
         title="Crear Producto"
-        visible={openModal}
+        visible={!openModal}
         handleVisible={() => setOpenModal(!openModal)}
       >
         <ProductCreateForm
