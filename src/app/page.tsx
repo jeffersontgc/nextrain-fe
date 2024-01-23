@@ -9,8 +9,8 @@ const HomePage = () => {
   const [formData, setFormData] = React.useState<any>({
     name: "",
     url: "",
-    precio: "",
-    descripcion: "",
+    price: "",
+    description: "",
   });
 
   console.log(formData);

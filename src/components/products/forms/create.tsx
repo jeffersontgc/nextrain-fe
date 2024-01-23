@@ -4,17 +4,17 @@ interface Props {
   formData: {
     name: string;
     url: string;
-    precio: string;
-    categoria: "comida" | "bebidas" | "licor";
-    descripcion: string;
+    price: string;
+    category: "comida" | "bebidas" | "licor";
+    description: string;
   };
   setFormData: React.Dispatch<
     React.SetStateAction<{
       name: string;
       url: string;
-      precio: string;
-      categoria: "comida" | "bebidas" | "licor";
-      descripcion: string;
+      price: string;
+      category: "comida" | "bebidas" | "licor";
+      description: string;
     }>
   >;
   handleSubmit: () => void;
@@ -37,27 +37,23 @@ const ProductCreateForm: React.FC<Props> = ({
       <form>
         <div className="flex flex-col w-auto">
           <div className="flex flex-row mb-4">
-            <div className="mr-4">
-              <label htmlFor="nombre" className="mb-4">
+            <div className="mr-4 flex flex-col">
+              <label htmlFor="nombre" className="mb-2">
                 Nombre:
-              </label>{" "}
-              <br />
+              </label>
               <input
                 type="text"
-                id="nombre"
                 name="name"
                 onChange={handdleOnChange}
                 className="border p-1"
               />
             </div>
-            <div className="ml-4">
-              <label htmlFor="url" className="mb-4">
+            <div className="ml-4 flex flex-col">
+              <label htmlFor="url" className="mb-2">
                 Url de la imagen:
               </label>
-              <br />
               <input
                 type="text"
-                id="url"
                 name="url"
                 onChange={handdleOnChange}
                 className="border p-1"
@@ -65,66 +61,59 @@ const ProductCreateForm: React.FC<Props> = ({
             </div>
           </div>
           <div className="flex flex-row mb-4">
-            <div className="mr-4">
-              <label htmlFor="precio" className="mb-4">
+            <div className="mr-4 flex flex-col">
+              <label htmlFor="precio" className="mb-2">
                 Precio (CS$):
               </label>
-              <br />
               <input
                 type="text"
-                id="precio"
                 name="precio"
                 onChange={handdleOnChange}
                 className="border p-1"
               />
             </div>
             <div className="ml-4">
-              <label className="mb-6">Categoría:</label>
-              <br />
-              <input
-                type="radio"
-                id="comida"
-                name="categoria"
-                value="comida"
-                onChange={handdleOnChange}
-                className="mr-1"
-              />
-              <label htmlFor="comida" className="cursor-pointer mr-2">
-                Comida
-              </label>
-              <input
-                type="radio"
-                id="bebidas"
-                name="categoria"
-                value="bebidas"
-                onChange={handdleOnChange}
-                className="mr-1"
-              />
-              <label htmlFor="bebidas" className="cursor-pointer mr-2">
-                Bebidas
-              </label>
-
-              <input
-                type="radio"
-                id="licor"
-                name="categoria"
-                value="licor"
-                onChange={handdleOnChange}
-                className="mr-1"
-              />
-              <label htmlFor="licor" className="cursor-pointer">
-                Licor
-              </label>
+              <label className="mb-2">Categoría:</label>
+              <div className="mt-5">
+                <input
+                  type="radio"
+                  name="categoria"
+                  value="comida"
+                  onChange={handdleOnChange}
+                  className="mr-1"
+                />
+                <label htmlFor="comida" className="cursor-pointer mr-2">
+                  Comida
+                </label>
+                <input
+                  type="radio"
+                  name="categoria"
+                  value="bebidas"
+                  onChange={handdleOnChange}
+                  className="mr-1"
+                />
+                <label htmlFor="bebidas" className="cursor-pointer mr-2">
+                  Bebidas
+                </label>
+                <input
+                  type="radio"
+                  name="categoria"
+                  value="licor"
+                  onChange={handdleOnChange}
+                  className="mr-1"
+                />
+                <label htmlFor="licor" className="cursor-pointer">
+                  Licor
+                </label>
+              </div>
             </div>
           </div>
-          <div className="mb-4">
-            <label htmlFor="descripcion" className="mb-4">
+          <div className="mb-4 flex flex-col">
+            <label htmlFor="descripcion" className="mb-2">
               Descripción:
             </label>
-            <br />
             <input
               type="text"
-              id="descripcion"
               name="descripcion"
               onChange={handdleOnChange}
               className="border p-1 w-full "
