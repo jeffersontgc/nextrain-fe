@@ -3,7 +3,6 @@ import React from "react";
 import HeaderHome from "@/components/header";
 import ModalForm from "@/components/utils/modal";
 import ProductCreateForm from "@/components/products/forms/create";
-import { categorys } from "../../../nextrain-be/src/database/seader/categorys";
 
 const HomePage = () => {
   const [openModal, setOpenModal] = React.useState<boolean>(false);
