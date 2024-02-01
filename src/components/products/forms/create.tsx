@@ -4,7 +4,6 @@ import { API_BACKEND } from "@/config/apis";
 interface Props {
   formData: {
     name: string;
-    url: string;
     price: number;
     category_uuid: string;
     description: string;
@@ -12,7 +11,6 @@ interface Props {
   setFormData: React.Dispatch<
     React.SetStateAction<{
       name: string;
-      url: string;
       price: number;
       category_uuid: string;
       description: string;
@@ -60,17 +58,6 @@ const ProductCreateForm: React.FC<Props> = ({
               <input
                 type="text"
                 name="name"
-                onChange={handdleOnChange}
-                className="border p-1"
-              />
-            </div>
-            <div className="ml-4 flex flex-col">
-              <label htmlFor="url" className="mb-2">
-                Url de la imagen:
-              </label>
-              <input
-                type="text"
-                name="url"
                 onChange={handdleOnChange}
                 className="border p-1"
               />
