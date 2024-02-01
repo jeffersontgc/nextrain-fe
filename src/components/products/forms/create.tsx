@@ -1,34 +1,50 @@
 import React from "react";
+import { API_BACKEND } from "@/config/apis";
 
 interface Props {
   formData: {
     name: string;
     url: string;
-    price: string;
-    category: "comida" | "bebidas" | "licor";
+    price: number;
+    category_uuid: string;
     description: string;
   };
   setFormData: React.Dispatch<
     React.SetStateAction<{
       name: string;
       url: string;
-      price: string;
-      category: "comida" | "bebidas" | "licor";
+      price: number;
+      category_uuid: string;
       description: string;
     }>
   >;
-  handleSubmit: () => void;
+  handleSubmit: (e: React.FormEvent) => void;
+  selectCategory: string;
+  setSelectCategory: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const ProductCreateForm: React.FC<Props> = ({
   formData,
   setFormData,
   handleSubmit,
+  ...props
 }) => {
+  const [categorys, setCategorys] = React.useState([]);
+
+  React.useEffect(() => {
+    handleFetchCategorys();
+  }, []);
+
+  const handleFetchCategorys = async () => {
+    const answer = await fetch(`${API_BACKEND}/categories/getAllCategories`);
+    const data = await answer.json();
+    setCategorys(data);
+  };
+
   const handdleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value as "comida" | "bebidas" | "licor",
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -66,55 +82,39 @@ const ProductCreateForm: React.FC<Props> = ({
                 Precio (CS$):
               </label>
               <input
-                type="text"
-                name="precio"
+                type="number"
+                name="price"
                 onChange={handdleOnChange}
                 className="border p-1"
               />
             </div>
             <div className="ml-4">
-              <label className="mb-2">Categoría:</label>
-              <div className="mt-5">
-                <input
-                  type="radio"
-                  name="categoria"
-                  value="comida"
-                  onChange={handdleOnChange}
-                  className="mr-1"
-                />
-                <label htmlFor="comida" className="cursor-pointer mr-2">
-                  Comida
-                </label>
-                <input
-                  type="radio"
-                  name="categoria"
-                  value="bebidas"
-                  onChange={handdleOnChange}
-                  className="mr-1"
-                />
-                <label htmlFor="bebidas" className="cursor-pointer mr-2">
-                  Bebidas
-                </label>
-                <input
-                  type="radio"
-                  name="categoria"
-                  value="licor"
-                  onChange={handdleOnChange}
-                  className="mr-1"
-                />
-                <label htmlFor="licor" className="cursor-pointer">
-                  Licor
-                </label>
+              <label className="mb-2">categoria:</label>
+              <div className="flex items-center gap-x-1 mt-5">
+                {categorys?.map((category: any, index: number) => (
+                  <div key={index}>
+                    <input
+                      type="checkbox"
+                      name="category_uuid"
+                      onChange={() => props.setSelectCategory(category.uuid)}
+                      checked={props.selectCategory === category.uuid}
+                      className="mr-1"
+                    />
+                    <label htmlFor="category_uuid" className="cursor-pointer">
+                      {category.name}
+                    </label>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
           <div className="mb-4 flex flex-col">
             <label htmlFor="descripcion" className="mb-2">
-              Descripción:
+              Descripcion:
             </label>
             <input
               type="text"
-              name="descripcion"
+              name="description"
               onChange={handdleOnChange}
               className="border p-1 w-full "
             ></input>
