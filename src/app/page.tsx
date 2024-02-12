@@ -8,6 +8,7 @@ import ProductCreateForm from "@/components/products/forms/create";
 import SuccessNotification from "@/components/utils/success";
 import ErrorNotification from "@/components/utils/error";
 import { API_BACKEND } from "@/config/apis";
+import ProductsLists from "@/components/products/list";
 
 const HomePage = () => {
   const [openModal, setOpenModal] = React.useState<boolean>(false);
@@ -15,6 +16,7 @@ const HomePage = () => {
   const [error, setError] = React.useState<boolean>(false);
   const [selectCategory, setSelectCategory] = React.useState<string>("");
   const [loading, setLoading] = React.useState<boolean>(false);
+  const [refetch, setRefetch] = React.useState<boolean>(false);
   const [formData, setFormData] = React.useState<any>({
     name: "",
     price: "",
@@ -41,11 +43,12 @@ const HomePage = () => {
     setLoading(true);
     const response = await axios.post(
       `${API_BACKEND}/products/createProduct`,
-      payload,
+      payload
     );
 
     if (response.data.status === "ok") {
       setSuccess(true);
+      setRefetch(!refetch);
     } else {
       setError(true);
     }
@@ -56,7 +59,14 @@ const HomePage = () => {
   return (
     <div>
       <HeaderHome />
-      <button onClick={() => setOpenModal(!openModal)}>Click</button>
+      <button
+        onClick={() => setOpenModal(!openModal)}
+        className="py-10 px-10 bg-red-500"
+      >
+        Show
+      </button>
+      <ProductsLists refetch={refetch} />
+
       <ModalForm
         title="Crear Producto"
         visible={openModal}
